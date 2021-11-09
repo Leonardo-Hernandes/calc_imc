@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Home(),
     ),
   );
@@ -26,10 +27,9 @@ class _HomeState extends State<Home> {
   void _resetFields() {
     weightControler.text = "";
     heightControler.text = "";
-    _formKey.currentState.reset();
-
     setState(
       () {
+        _formKey.currentState.reset();
         _infoText = "Informe seus dados!";
       },
     );
@@ -55,6 +55,9 @@ class _HomeState extends State<Home> {
         } else if (imc >= 40) {
           _infoText = "Obesidade Grau III (${imc.toStringAsPrecision(4)})";
         }
+
+        // weightControler.text = "";
+        // heightControler.text = "";
       },
     );
   }
